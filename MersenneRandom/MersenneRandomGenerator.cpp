@@ -8,6 +8,8 @@
 
 #include "MersenneRandomGenerator.hpp"
 
+static const uint32_t UINT32MAX = 0xFFFFFFFF;
+
 #pragma mark - random generator cofiguration
 
 MersenneGeneratorConfiguration::MersenneGeneratorConfiguration() {
@@ -71,6 +73,13 @@ uint32_t MersenneGenerator::mersenneRandomGeneratedNumber() {
     randomNumber ^= (randomNumber << currentConfiguration->S) & currentConfiguration->B;
     randomNumber ^= (randomNumber << currentConfiguration->T) & currentConfiguration->C;
     randomNumber ^= (randomNumber >> currentConfiguration->L);
+    return randomNumber;
+}
+
+uint32_t MersenneGenerator::mersenneRandomGeneratedNumberWithUpperBound(uint32_t bound) {
+    uint32_t randomNumber = this->mersenneRandomGeneratedNumber();
+    double percentage = (double)randomNumber / (double)UINT32MAX;
+    randomNumber = percentage * (double)bound;
     return randomNumber;
 }
 

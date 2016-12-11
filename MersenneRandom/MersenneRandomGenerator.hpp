@@ -34,6 +34,7 @@ class MersenneGenerator {
 public:
     MersenneGenerator(MersenneGeneratorConfiguration *configuration, uint32_t seed);
     uint32_t mersenneRandomGeneratedNumber();
+    uint32_t mersenneRandomGeneratedNumberWithUpperBound(uint32_t bound);
     uint32_t *mt;
     uint16_t currentIndex;
 private:
