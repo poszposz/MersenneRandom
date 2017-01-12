@@ -5,6 +5,17 @@
 //  Created by Jan Posz on 11.12.2016.
 //  Copyright © 2016 agh. All rights reserved.
 //
+/*
+ - upewnić się co do alfebetu danego generatora
+ - ustalic 4 generatory, ktore maja takie same alfabety
+ - porównać wartości pomiędzy nimi
+ - porownac ich wartości z naszym algorytmem.
+ - dla roznych dlugoci sekwencji
+ - brać dla róznych dlugosci znaków. Dla malych ilosci znaków przykładowo jeśli jeden znak powtorzy sie 3 razy, jest zle. Dla dużych ilosci znaków nie.
+ - analiza błędu, wwartość średnia
+ - przyjrzeć się ENT i znaleźć metryki do wyznaczania jakości.
+ -
+*/
 
 #include "MersenneRandomGenerator.hpp"
 
