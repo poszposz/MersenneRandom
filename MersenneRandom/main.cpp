@@ -21,7 +21,7 @@ __unused string alfabet_2[10] = {"a","b","c","d","e","f","g","h","i","j"};
 static string alfabet_3[15] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o"};
 static string alfabet_4[20] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t"};
 static string alfabet_5[26] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","x","z"};
-int times = 50;
+int times = 1000;
 static string *tab[5] = {alfabet_1,alfabet_4,alfabet_3,alfabet_4,alfabet_5};
 
 void generateMersenneFiles() {
@@ -40,7 +40,7 @@ void generateMersenneFiles() {
         for(int i=0 ;i<times;i++) {
             string rand = tab[j][generator->mersenneRandomGeneratedNumberWithUpperBound(alfabet_length[j])];
             cout << &myfile;
-            myfile << rand << endl;
+            myfile << rand;
         }
         myfile.close();
     }
@@ -60,12 +60,12 @@ void generateMinSTDRandom() {
     for(int j=0 ;j<5;j++) {
         myfile.open(files[j], fstream::binary | fstream::in | fstream::out | fstream::trunc);
         myfile.flush();
-        minstd_rand gen(seed);
-        uniform_int_distribution<> distr(0, alfabet_length[j]);
+        minstd_rand0 gen(seed);
+        uniform_int_distribution<> distr(2, alfabet_length[j]);
         for(int i=0 ;i<times;i++) {
             string rand = tab[j][distr(gen)];
             cout << rand << endl;
-            myfile << rand << endl;
+            myfile << rand;
         }
         myfile.close();
     }
@@ -87,7 +87,7 @@ void generateKnuthRandom() {
         int alphabetLength = alfabet_length[j];
         for(int i=0 ;i<times;i++) {
             string rand = tab[j][knuth() % alphabetLength];
-            myfile << rand << endl;
+            myfile << rand;
         }
         myfile.close();
     }
@@ -99,8 +99,8 @@ void generateKnuthRandom() {
 
 int main(int argc, const char * argv[]) {
     
-//    generateMersenneFiles();
-//    generateMinSTDRandom();
+    generateMersenneFiles();
+    generateMinSTDRandom();
     generateKnuthRandom();
    
     return 0;

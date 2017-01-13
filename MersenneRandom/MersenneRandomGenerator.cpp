@@ -60,7 +60,7 @@ void MersenneGenerator::twist() {
     uint32_t xA;
     for (int i = 0; i < currentConfiguration->N; i++) {
         x = (*(mt + i + 1) & currentConfiguration->upperMask) +
-            (*(mt + (i + 1) % currentConfiguration->N) % currentConfiguration->lowerMask);
+            (*(mt + (i + 1) % currentConfiguration->N) & currentConfiguration->lowerMask);
         xA = x >> 1;
         if (x & 0x1) {
             xA ^= currentConfiguration->A;
