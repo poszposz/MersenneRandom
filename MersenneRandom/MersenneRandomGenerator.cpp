@@ -15,6 +15,11 @@
  - analiza błędu, wwartość średnia
  - przyjrzeć się ENT i znaleźć metryki do wyznaczania jakości.
  -
+ 
+ Drugie zajecia notatki:
+ - zrobić wyniki dla 1000 obliczeń enta (moze nie tysiaca, ale sporo)
+ - na dzisiaj raport tego kto nad czym pracowal
+ -
 */
 
 #include "MersenneRandomGenerator.hpp"
